@@ -1,0 +1,84 @@
+<!-- <div class="container">
+    <form #Form="ngForm" class="col-6">
+        <input class="form-control ng-pristine ng-valid" type="text" name="name" [(ngModel)]="name">
+        <div [hidden]="name.valid !! name.pristine">Nome é obrigatório</div>
+        <select [(ngModel)]="power" name="powers" id="powers" class="form-control">
+            <option>Selecionar opcão</option>
+            <option [value]="power" *ngFor="let power of powers">{{power}}</option>
+        </select>
+        <input [disabled]="!disableTeste" class="btn btn-primary" type="submit" value="Enviar">
+    </form>
+</div> -->
+
+<br>
+<div class="container">
+ 
+<!-- <div class="form-group col-6">    
+    <label for="nameServe">Serve name</label>
+    <input (input)="onUpdateServeName($event)"  class="form-control" type="text" name="nameServe" id="nameServe">
+</div> -->
+
+<div class="form-group col-6">    
+    <label for="nameServe">Serve name</label>
+    <input (input)="onUpdateServeName($event)"  class="form-control" type="text" name="nameServe" id="nameServe">
+    <button (click)="onCreateServer()" class="btn btn-success">Create Service</button>
+</div>
+
+<!-- usando ngif e else -->
+<p *ngIf="verifyServe; else noServer">{{serveCreationStatus}}</p>
+<ng-template #noServer>
+    <p>
+        No Serve was created!
+    </p>
+</ng-template>
+
+<p [ngStyle]="{background: getColor()}">O {{serveName}} da porda {{servidor }} estar com o status {{getStatusServe()}}</p>
+<p [ngStyle]="{background: getColor()}">O {{serveName}} da porda {{servidor }} estar com o status {{getStatusServe()}}</p>
+
+<!-- ngClass só adiciona classes CSS em uma determinada condição -->
+<p [ngClass]="{online: statusServidor === 'online'}">SERVIDOR ONLINE</p>
+<P [ngClass]="{offline: statusServidor === 'offline'}">SERVIDOR OFFLINE</P>
+
+<ul>
+    <li>Lista de Servidores
+        <ul>
+            <li [ngClass]="{textWhite: i >= 4}" [ngStyle]="{background: i >= 4 ? '#00FFFF' : '#7FFFD4'}"  *ngFor="let serve of listServers; let i = index">{{i}} {{serve}}</li>
+        </ul>
+    </li>
+</ul>
+
+<!-- Interpolação no angular e databinling -->
+<p [innerHtml]="disableTeste"></p>
+<button (click)="onCreateServer()" class="btn btn-success">Create Service</button>
+
+<br>
+<br>
+
+<button (click)="onIncrement()" class="btn btn-success">Add Service</button>
+<!-- <p *ngIf="verifyServe">{{serveCreationStatus}}</p> -->
+<p>{{qtas}}</p>
+
+<br>
+
+
+
+<!-- {{name}}
+{{power}} -->
+
+<br>
+
+<input [(ngModel)]="nname" type="text" name="nname" id="nname">
+<br>
+<p>{{nname}}</p>
+<button [disabled] = "nname === ''" (click)="nname = ''">Resert Name</button>
+
+<div class="form-control">
+    <div class="row">
+        <label for="senha">Senha:</label>
+        <div>
+        <input [type]="inputValue ? 'text' : 'password'" name="senha" id="senha"><span (click)="showPassword()" style="cursor: pointer;">monstrar senha</span>
+        </div>
+    </div>
+</div>
+
+</div>
